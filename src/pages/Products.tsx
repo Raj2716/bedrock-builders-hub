@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -135,23 +136,21 @@ const Products = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-industrial">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${materialsImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl font-bold text-foreground mb-6 font-poppins">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 font-poppins">
               Premium Construction Materials
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               Comprehensive selection of high-quality sands, stones, and aggregates 
               for all your construction and industrial needs.
             </p>
-            <div className="flex justify-center">
-              <img 
-                src={materialsImage}
-                alt="Various construction materials"
-                className="rounded-2xl shadow-industrial max-w-2xl w-full h-64 object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -250,8 +249,8 @@ const Products = () => {
                         </div>
 
                         <div className="pt-4 border-t border-border">
-                          <Button className="w-full shadow-construction">
-                            Request Quote for {product.name}
+                          <Button asChild className="w-full shadow-construction">
+                            <Link to="/contact">Request Quote for {product.name}</Link>
                           </Button>
                         </div>
                       </CardContent>
@@ -302,8 +301,8 @@ const Products = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="shadow-construction">
-              Contact Our Logistics Team
+            <Button asChild size="lg" className="shadow-construction">
+              <Link to="/contact">Contact Our Logistics Team</Link>
             </Button>
           </div>
         </div>

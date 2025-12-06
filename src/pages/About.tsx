@@ -48,35 +48,41 @@ const About = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-industrial">
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${facilityImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 font-poppins">
+              A. Kumarasamy Nayakar
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+              35 Years of Excellence in Aggregate Materials & Construction Supply
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="shadow-construction">
+                <Link to="/contact">Partner With Us</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/products">View Our Materials</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Content */}
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-fade-in">
-              <h1 className="text-5xl font-bold text-foreground mb-6 font-poppins">
-                A. Kumarasamy Nayakar - 35 Years of Excellence
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Founded by A. Kumarasamy Nayakar, our firm has been successfully trading 
-                in aggregate materials and building construction supply for over 35 years. 
-                We also produce and supply raw salt across all of Tamil Nadu.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="shadow-construction">
-                  <Link to="/contact">Partner With Us</Link>
-                </Button>
-                <Button variant="outline" size="lg">
-                  <Link to="/products">View Our Materials</Link>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="animate-scale-in">
-              <img 
-                src={facilityImage}
-                alt="StoneMaster facility"
-                className="rounded-2xl shadow-industrial w-full h-[500px] object-cover"
-              />
-            </div>
+          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Founded by A. Kumarasamy Nayakar, our firm has been successfully trading 
+              in aggregate materials and building construction supply for over 35 years. 
+              We also produce and supply raw salt across all of Tamil Nadu.
+            </p>
           </div>
         </div>
       </section>
@@ -256,10 +262,10 @@ const About = () => {
               Sunex Concrete, and Esteem Engineering. Let's build something great together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-6 shadow-construction">
+              <Button asChild size="lg" className="text-lg px-8 py-6 shadow-construction">
                 <Link to="/contact">Start Partnership</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+              <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
                 <Link to="/products">Browse Materials</Link>
               </Button>
             </div>

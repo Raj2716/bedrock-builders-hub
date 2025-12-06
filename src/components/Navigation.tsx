@@ -53,8 +53,8 @@ const Navigation = () => {
               <a href="mailto:info@stonemaster.com" className="text-muted-foreground hover:text-primary transition-smooth">
                 <Mail className="w-4 h-4" />
               </a>
-              <Button variant="default" size="sm" className="shadow-construction">
-                Get Quote
+              <Button asChild variant="default" size="sm" className="shadow-construction">
+                <Link to="/contact">Get Quote</Link>
               </Button>
             </div>
           </div>
@@ -95,8 +95,8 @@ const Navigation = () => {
                     <Mail className="w-5 h-5" />
                   </a>
                 </div>
-                <Button variant="default" size="sm" className="shadow-construction">
-                  Get Quote
+                <Button asChild variant="default" size="sm" className="shadow-construction">
+                  <Link to="/contact">Get Quote</Link>
                 </Button>
               </div>
             </div>
