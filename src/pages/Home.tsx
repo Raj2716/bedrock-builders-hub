@@ -30,10 +30,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "50+", label: "Construction Partners" },
-    { number: "10M+", label: "Tons Delivered" },
-    { number: "15", label: "Years Experience" }
+    { number: "35+", label: "Years Experience" },
+    { number: "100+", label: "Projects Completed" },
+    { number: "50+", label: "B2B Partners" },
+    { number: "All TN", label: "Salt Supply Coverage" }
   ];
 
   return (
@@ -50,14 +50,14 @@ const Home = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-poppins leading-tight">
-              Premium Construction 
+              A. Kumarasamy Nayakar
               <span className="text-construction-orange-light block mt-2">
-                Materials Supplier
+                Construction & Salt Supplies
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Your trusted wholesale partner for high-quality sands, stones, and aggregates. 
-              Serving construction companies with reliable bulk delivery since 2009.
+              35+ years of excellence in aggregate materials, building construction supply, 
+              and raw salt distribution across Tamil Nadu.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-in">
               <Button size="lg" className="text-lg px-8 py-6 shadow-construction hover:shadow-construction">
@@ -86,7 +86,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold text-foreground mb-4 font-poppins">
-              Why Choose StoneMaster?
+              Why Choose A. Kumarasamy Nayakar?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               We're committed to delivering exceptional service and premium materials 
@@ -149,16 +149,16 @@ const Home = () => {
                 Premium Quality Materials for Every Project
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                From fine concrete sand to large aggregate stones, we supply the complete range 
-                of construction materials. Our products meet all industry standards and are 
-                perfect for residential, commercial, and industrial projects.
+                We supply aggregate materials and building construction needs for major projects. 
+                Additionally, we produce and distribute raw salt across all of Tamil Nadu 
+                to leading salt manufacturers.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Concrete Sand & Fine Aggregates",
+                  "Aggregates & Construction Materials",
                   "Crushed Stone & Coarse Aggregates", 
-                  "Specialty Sands & Fill Materials",
-                  "Custom Material Blends"
+                  "Raw Salt Supply - All Over Tamil Nadu",
+                  "Bulk Orders for B2B Partners"
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-foreground">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>

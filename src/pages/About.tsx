@@ -29,12 +29,12 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: "2009", event: "Company founded with a single quarry operation" },
-    { year: "2012", event: "Expanded to serve 5 major metropolitan areas" },
-    { year: "2015", event: "Achieved ISO 9001 quality certification" },
-    { year: "2018", event: "Opened state-of-the-art processing facility" },
-    { year: "2020", event: "Launched sustainable materials program" },
-    { year: "2024", event: "Serving 500+ construction companies nationwide" }
+    { year: "1989", event: "Company founded by A. Kumarasamy Nayakar" },
+    { year: "2000", event: "Expanded aggregate materials trading across Tamil Nadu" },
+    { year: "2010", event: "Major project: Ramanathapuram Medical College" },
+    { year: "2015", event: "Partnership with CMK Construction Chennai" },
+    { year: "2018", event: "Salt supply expansion - RTC Salt & Alagar Salt" },
+    { year: "2024", event: "35+ years of trusted B2B partnerships" }
   ];
 
   const certifications = [
@@ -53,12 +53,12 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in">
               <h1 className="text-5xl font-bold text-foreground mb-6 font-poppins">
-                Building Trust Through Quality & Service
+                A. Kumarasamy Nayakar - 35 Years of Excellence
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                For over 15 years, StoneMaster has been the trusted partner for construction 
-                companies nationwide, delivering premium materials with unmatched reliability 
-                and service excellence.
+                Founded by A. Kumarasamy Nayakar, our firm has been successfully trading 
+                in aggregate materials and building construction supply for over 35 years. 
+                We also produce and supply raw salt across all of Tamil Nadu.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="shadow-construction">
@@ -171,7 +171,7 @@ const About = () => {
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               From humble beginnings to industry leadership - here's how we've grown 
-              over the past 15 years.
+              over the past 35 years.
             </p>
           </div>
 
@@ -252,8 +252,8 @@ const About = () => {
               Ready to Work Together?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Join the 500+ construction companies that trust StoneMaster for their 
-              material supply needs. Let's build something great together.
+              Join our trusted partners like CMK Construction, URC Construction, 
+              Sunex Concrete, and Esteem Engineering. Let's build something great together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6 shadow-construction">

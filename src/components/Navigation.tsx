@@ -23,11 +23,11 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center shadow-construction">
-              <span className="text-primary-foreground font-bold text-xl font-poppins">SM</span>
+              <span className="text-primary-foreground font-bold text-xl font-poppins">AK</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground font-poppins">StoneMaster</h1>
-              <p className="text-xs text-muted-foreground">Construction Materials</p>
+              <h1 className="text-xl font-bold text-foreground font-poppins">A. Kumarasamy Nayakar</h1>
+              <p className="text-xs text-muted-foreground">Construction & Salt Supplies</p>
             </div>
           </Link>
 
