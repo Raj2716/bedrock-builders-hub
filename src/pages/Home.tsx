@@ -2,8 +2,19 @@ import { ArrowRight, Truck, Award, Clock, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-construction.jpg';
 import materialsImage from '@/assets/materials-showcase.jpg';
+import { 
+  FadeUp, 
+  SlideInLeft, 
+  SlideInRight, 
+  StaggerContainer, 
+  StaggerItem,
+  HoverScale,
+  ImageReveal,
+  HeroText
+} from '@/components/animations/MotionWrapper';
 
 const Home = () => {
   const features = [
@@ -40,51 +51,89 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div 
+        <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-earth-brown/80 via-earth-brown/60 to-transparent" />
-        </div>
+        </motion.div>
         
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-poppins leading-tight">
-              A. Kumarasamy Nayakar
-              <span className="text-construction-orange-light block mt-2">
-                Construction & Salt Supplies
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <div className="max-w-4xl mx-auto">
+            <HeroText delay={0.2}>
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-poppins leading-tight">
+                A. Kumarasamy Nayakar
+                <motion.span 
+                  className="text-construction-orange-light block mt-2"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6, duration: 0.8 }}
+                >
+                  Construction & Salt Supplies
+                </motion.span>
+              </h1>
+            </HeroText>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
               35+ years of excellence in aggregate materials, building construction supply, 
               and raw salt distribution across Tamil Nadu.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-in">
-              <Button size="lg" className="text-lg px-8 py-6 shadow-construction hover:shadow-construction">
-                <Link to="/products" className="flex items-center gap-2">
-                  View Our Products
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm">
-                <Link to="/contact">Get Quote Now</Link>
-              </Button>
-            </div>
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              <HoverScale>
+                <Button asChild size="lg" className="text-lg px-8 py-6 shadow-construction">
+                  <Link to="/products" className="flex items-center gap-2">
+                    View Our Products
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+              </HoverScale>
+              <HoverScale>
+                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm">
+                  <Link to="/contact">Get Quote Now</Link>
+                </Button>
+              </HoverScale>
+            </motion.div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <motion.div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ 
+            opacity: { delay: 1.5, duration: 0.5 },
+            y: { delay: 2, duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+            <motion.div 
+              className="w-1 h-3 bg-white/60 rounded-full mt-2"
+              animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Features Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
+          <FadeUp className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 font-poppins">
               Why Choose A. Kumarasamy Nayakar?
             </h2>
@@ -92,59 +141,70 @@ const Home = () => {
               We're committed to delivering exceptional service and premium materials 
               to keep your construction projects on schedule.
             </p>
-          </div>
+          </FadeUp>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card 
-                key={feature.title} 
-                className="card-gradient border-0 shadow-elevation hover:shadow-industrial transition-all duration-300 hover:-translate-y-2 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-6 shadow-construction">
-                    <feature.icon className="w-8 h-8 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground font-poppins">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature) => (
+              <StaggerItem key={feature.title}>
+                <HoverScale>
+                  <Card className="card-gradient border-0 shadow-elevation hover:shadow-industrial transition-all duration-300 h-full">
+                    <CardContent className="p-8 text-center">
+                      <motion.div 
+                        className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-6 shadow-construction"
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <feature.icon className="w-8 h-8 text-primary-foreground" />
+                      </motion.div>
+                      <h3 className="text-xl font-semibold mb-3 text-foreground font-poppins">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-hero text-white">
+      <section className="py-20 bg-gradient-hero text-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div 
-                key={stat.label} 
-                className="text-center animate-bounce-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="text-5xl md:text-6xl font-bold mb-2 font-poppins">
-                  {stat.number}
-                </div>
-                <div className="text-xl text-primary-foreground/80">
-                  {stat.label}
-                </div>
-              </div>
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat) => (
+              <StaggerItem key={stat.label}>
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div 
+                    className="text-5xl md:text-6xl font-bold mb-2 font-poppins"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <div className="text-xl text-primary-foreground/80">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Products Preview */}
-      <section className="py-20">
+      <section className="py-20 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-fade-in">
+            <SlideInLeft>
               <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
                 Premium Quality Materials for Every Project
               </h2>
@@ -153,34 +213,53 @@ const Home = () => {
                 Additionally, we produce and distribute raw salt across all of Tamil Nadu 
                 to leading salt manufacturers.
               </p>
-              <ul className="space-y-3 mb-8">
+              <motion.ul className="space-y-3 mb-8">
                 {[
                   "Aggregates & Construction Materials",
                   "Crushed Stone & Coarse Aggregates", 
                   "Raw Salt Supply - All Over Tamil Nadu",
                   "Bulk Orders for B2B Partners"
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-foreground">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                ].map((item, index) => (
+                  <motion.li 
+                    key={item} 
+                    className="flex items-center gap-3 text-foreground"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                  >
+                    <motion.div 
+                      className="w-2 h-2 bg-primary rounded-full"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
+                    />
                     {item}
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
-              <Button size="lg" className="shadow-construction">
-                <Link to="/products" className="flex items-center gap-2">
-                  Explore All Products
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-            </div>
+              </motion.ul>
+              <HoverScale>
+                <Button asChild size="lg" className="shadow-construction">
+                  <Link to="/products" className="flex items-center gap-2">
+                    Explore All Products
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+              </HoverScale>
+            </SlideInLeft>
             
-            <div className="animate-scale-in">
-              <img 
-                src={materialsImage}
-                alt="Construction materials showcase"
-                className="rounded-2xl shadow-industrial w-full h-[500px] object-cover"
-              />
-            </div>
+            <SlideInRight>
+              <ImageReveal className="overflow-hidden rounded-2xl shadow-industrial">
+                <motion.img 
+                  src={materialsImage}
+                  alt="Construction materials showcase"
+                  className="w-full h-[500px] object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6 }}
+                />
+              </ImageReveal>
+            </SlideInRight>
           </div>
         </div>
       </section>
@@ -188,7 +267,7 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 bg-accent/20">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto animate-fade-in">
+          <FadeUp className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
               Ready to Start Your Next Project?
             </h2>
@@ -196,15 +275,25 @@ const Home = () => {
               Get competitive wholesale pricing and reliable delivery for your construction materials. 
               Our team is ready to support your project needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-6 shadow-construction">
-                <Link to="/contact">Request Quote</Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
-                <Link to="/about">Learn More</Link>
-              </Button>
-            </div>
-          </div>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <HoverScale>
+                <Button asChild size="lg" className="text-lg px-8 py-6 shadow-construction">
+                  <Link to="/contact">Request Quote</Link>
+                </Button>
+              </HoverScale>
+              <HoverScale>
+                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
+                  <Link to="/about">Learn More</Link>
+                </Button>
+              </HoverScale>
+            </motion.div>
+          </FadeUp>
         </div>
       </section>
     </div>
