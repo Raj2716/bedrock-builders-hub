@@ -81,13 +81,14 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-industrial">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-gradient-hero">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzBoLTZ2LTZoNnY2em0wLTZ2LTZoLTZ2Nmg2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl font-bold text-foreground mb-6 font-poppins">
+            <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6 font-poppins">
               Get Your Quote Today
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-primary-foreground/80 leading-relaxed">
               Ready to supply your construction project? Our team provides competitive 
               wholesale pricing and flexible delivery options tailored to your timeline.
             </p>
@@ -309,8 +310,8 @@ const Contact = () => {
             <p className="text-muted-foreground mb-6">
               Don't see your area listed? We're expanding our coverage. Contact us to inquire about delivery to your location.
             </p>
-            <Button variant="outline" size="lg">
-              Check Service Availability
+            <Button asChild variant="outline" size="lg">
+              <a href="tel:+1234567890">Check Service Availability</a>
             </Button>
           </div>
         </div>
@@ -329,17 +330,19 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
+                asChild
                 size="lg" 
                 variant="outline" 
                 className="text-lg px-8 py-6 bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm"
               >
-                Call Emergency Hotline
+                <a href="tel:+1234567890">Call Emergency Hotline</a>
               </Button>
               <Button 
+                asChild
                 size="lg" 
-                className="text-lg px-8 py-6 bg-white text-primary hover:bg-gray-100"
+                className="text-lg px-8 py-6 bg-white text-primary hover:bg-muted"
               >
-                Request Rush Delivery
+                <a href="#quote-form" onClick={(e) => { e.preventDefault(); document.getElementById('name')?.focus(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Request Rush Delivery</a>
               </Button>
             </div>
           </div>
