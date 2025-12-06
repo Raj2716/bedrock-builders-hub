@@ -79,36 +79,36 @@ const Products = () => {
       ]
     },
     specialty: {
-      title: "Specialty Materials",
-      description: "Engineered materials for specific construction applications", 
+      title: "Raw Salt & Specialty Materials",
+      description: "Premium raw salt supply across Tamil Nadu and specialty construction materials", 
       products: [
         {
-          name: "Recycled Concrete Aggregate",
-          description: "Environmentally friendly recycled aggregate for sustainable construction",
-          specifications: ["Size: Various", "Processed & Clean", "Environmental Compliant"],
-          applications: ["Road Base", "Pipe Bedding", "General Fill"],
-          price: "From $30/ton"
+          name: "Raw Salt - Industrial Grade",
+          description: "Premium quality raw salt supplied to major manufacturers across Tamil Nadu",
+          specifications: ["High Purity", "Bulk Quantities", "All-TN Delivery"],
+          applications: ["RTC Salt", "Alagar Salt", "Industrial Processing"],
+          price: "Quote on Request"
         },
         {
-          name: "Manufactured Sand",
-          description: "Engineered sand with consistent properties for critical applications",
-          specifications: ["Controlled Gradation", "Low Micro-fines", "Consistent Quality"],
-          applications: ["High-Strength Concrete", "Precast", "Ready-Mix"],
-          price: "From $50/ton"
+          name: "Raw Salt - Commercial Grade",
+          description: "Quality raw salt for various commercial and manufacturing applications",
+          specifications: ["Consistent Quality", "Large Volume Supply", "Regular Supply"],
+          applications: ["Salt Manufacturing", "Food Industry", "Commercial Use"],
+          price: "Quote on Request"
         },
         {
           name: "Drainage Stone",
           description: "Specially graded stone for effective water management systems",
           specifications: ["Open-Graded", "High Permeability", "Durable"],
           applications: ["French Drains", "Septic Systems", "Foundation Drainage"],
-          price: "From $48/ton"
+          price: "Quote on Request"
         },
         {
           name: "Base Course Material",
           description: "Engineered aggregate blend for road and pavement construction",
           specifications: ["Dense-Graded", "Optimized Gradation", "High CBR"],
           applications: ["Road Construction", "Parking Areas", "Heavy-Duty Pavements"],
-          price: "From $38/ton"
+          price: "Quote on Request"
         }
       ]
     }
@@ -184,8 +184,8 @@ const Products = () => {
                 className="py-4 px-6 text-center data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 <div>
-                  <div className="font-semibold">Specialty Materials</div>
-                  <div className="text-xs opacity-80">Engineered & Recycled</div>
+                  <div className="font-semibold">Raw Salt & Specialty</div>
+                  <div className="text-xs opacity-80">Salt Supply & Materials</div>
                 </div>
               </TabsTrigger>
             </TabsList>
